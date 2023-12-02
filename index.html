@@ -11,7 +11,7 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-
+    <link rel="stylesheet" href="style.css" />
     <title>Frontend Mentor | Job Listings</title>
   </head>
   <body>
@@ -19,36 +19,53 @@
     <section class="filter">
       <div class="filter__jobs">
         <div class="filter__job">
-          <span class="filter__title"></span>
-          <span class="filter__close"></span>
+          <span class="filter__title">Frontend</span>
+          <span class="filter__close"
+            ><img src="./images/icon-remove.svg" alt="Close"
+          /></span>
+        </div>
+        <div class="filter__job">
+          <span class="filter__title">HTML</span>
+          <span class="filter__close"
+            ><img src="./images/icon-remove.svg" alt="Close"
+          /></span>
+        </div>
+        <div class="filter__job">
+          <span class="filter__title">Javas dfgfd g dfscript</span>
+          <span class="filter__close"
+            ><img src="./images/icon-remove.svg" alt="Close"
+          /></span>
         </div>
       </div>
       <div class="filter__clear">Clear</div>
     </section>
-    <section class="box-jobs">
-      <div class="job">
-        <div class="job__left"></div>
-        <div class="job__box">
-          <img src="" alt="" class="job__logo" />
-          <div class="job__section">
-            <div class="job__features">
-              <span class="job__company"></span>
-              <span class="job__new"></span>
-              <span class="job__featured"></span>
-            </div>
-            <h1 class="job__position"></h1>
-            <div class="job__infos">
-              <span class="job__info"></span>
-              <span class="job__separator"></span>
-              <span class="job__info"></span>
-              <span class="job__separator"></span>
-              <span class="job__info"></span>
-              <span class="job__separator"></span>
+    <section class="jobs">
+      <div class="jobs__container">
+        <div class="jobs__left"></div>
+        <div class="jobs__box">
+          <div class="jobs__section">
+            <img src="./images/photosnap.svg" alt="" class="jobs__logo" />
+            <div class="jobs__details">
+              <div class="jobs__features">
+                <span class="jobs__company">Photosnap</span>
+                <span class="jobs__new">NEW!</span>
+                <span class="jobs__featured">FEATURED</span>
+              </div>
+              <h1 class="jobs__position">Senior Frontend Developer</h1>
+              <div class="jobs__infos">
+                <span class="jobs__info">1d ago</span>
+                <span class="jobs__separator"></span>
+                <span class="jobs__info">Full time</span>
+                <span class="jobs__separator"></span>
+                <span class="jobs__info">Usa Only</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="job__categories">
-          <span class="job__categorie"></span>
+          <div class="jobs__categories">
+            <span class="jobs__category">Frontend</span>
+            <span class="jobs__category">Senior</span>
+            <span class="jobs__category">Html</span>
+          </div>
         </div>
       </div>
     </section>
