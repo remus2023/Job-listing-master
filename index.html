@@ -12,34 +12,23 @@
       href="./images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="./script.js" defer></script>
     <title>Frontend Mentor | Job Listings</title>
   </head>
   <body>
     <header class="header"></header>
-    <section class="filter">
-      <div class="filter__jobs">
-        <div class="filter__job">
-          <span class="filter__title">Frontend</span>
-          <span class="filter__close"
-            ><img src="./images/icon-remove.svg" alt="Close"
-          /></span>
-        </div>
-        <div class="filter__job">
-          <span class="filter__title">HTML</span>
-          <span class="filter__close"
-            ><img src="./images/icon-remove.svg" alt="Close"
-          /></span>
-        </div>
-        <div class="filter__job">
-          <span class="filter__title">Javas dfgfd g dfscript</span>
-          <span class="filter__close"
-            ><img src="./images/icon-remove.svg" alt="Close"
-          /></span>
-        </div>
+    <section class="filter hide" id="filter">
+      <div class="filter__jobs" id="filterJobs">
+        <!-- <div class="filter__job">
+          <div class="filter__title">Frontend</div>
+          <div class="filter__close">
+            <img src="./images/icon-remove.svg" alt="Close" />
+          </div>
+        </div> -->
       </div>
-      <div class="filter__clear">Clear</div>
+      <div class="filter__clear" id="filterClear">Clear</div>
     </section>
-    <section class="jobs">
+    <section class="jobs" id="jobs">
       <div class="jobs__container">
         <div class="jobs__left"></div>
         <div class="jobs__box">
@@ -53,7 +42,7 @@
               </div>
               <h1 class="jobs__position">Senior Frontend Developer</h1>
               <div class="jobs__infos">
-                <span class="jobs__info">1d ago</span>
+                <span class="jobs__info">1ddd ago</span>
                 <span class="jobs__separator"></span>
                 <span class="jobs__info">Full time</span>
                 <span class="jobs__separator"></span>

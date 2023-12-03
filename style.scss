@@ -66,13 +66,17 @@ body {
     @include flexBox(1110px, auto, row, space-between, center, 16px);
     position: absolute;
     top: 120px;
+    left: 165px;
     padding: 20px 40px;
     background: $color-white;
     border-radius: 5px;
     box-shadow: 0px 15px 20px -5px $shadow;
+    min-height: 72px;
 
     &__jobs {
         @include flexBox(900px, auto, row, flex-start, center, 16px);
+        flex-wrap: wrap;
+
     }
 
     &__job {
@@ -115,7 +119,7 @@ body {
 }
 
 .jobs {
-    @include flexBox(1440px, 100vh, column, flex-start, center, 24px);
+    @include flexBox(1440px, auto, column, flex-start, center, 24px);
     padding-top: 76px;
     padding-bottom: 120px;
     background-color: $bg-color;
@@ -125,7 +129,7 @@ body {
         background: $color-white;
         border-radius: 5px;
         box-shadow: 0px 15px 20px -5px $shadow;
-        overflow: auto;
+        overflow: hidden;
     }
 
     &__left {
@@ -201,4 +205,16 @@ body {
         background: $color-green;
         color: $color-white;
     }
+}
+
+.hide {
+    display: none;
+}
+
+.featured {
+    background: $color-white;
+}
+
+.disabled {
+    pointer-events: none;
 }
