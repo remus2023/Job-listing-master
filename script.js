@@ -1,7 +1,7 @@
-//const jobs = document.querySelector("#jobs");
-//const filterJobs = document.querySelector("#filterJobs");
-//const filterClear = document.querySelector("#filterClear");
-console.log(jobs);
+const jobs = document.querySelector("#jobs");
+const filterJobs = document.querySelector("#filterJobs");
+const filterClear = document.querySelector("#filterClear");
+const filter = document.querySelector("#filter");
 
 async function fetchJobs() {
   try {
@@ -59,13 +59,11 @@ function checkFeatured(arrayJobList) {
     jobsContainer.forEach((elementContainer, indexContainer) => {
       if (!elementList.new && indexList === indexContainer) {
         const jobsNew = elementContainer.querySelector("#jobsNew");
-        console.log(elementList.featured);
         jobsNew.classList.add("hide");
       }
       if (!elementList.featured && indexList === indexContainer) {
         const jobsFeatured = elementContainer.querySelector("#jobsFeatured");
         const jobsLeft = elementContainer.querySelector("#jobsLeft");
-        console.log(jobsLeft);
         jobsFeatured.classList.add("hide");
         jobsLeft.classList.add("featured");
       }
@@ -107,18 +105,28 @@ function checkFeatured(arrayJobList) {
 
 function selectTags(spanElement) {
   spanElement.addEventListener("click", () => {
-    const filterJob = document.querySelector("#filterJob");
+    //check if exist tag in filter
+    const filterJob = document.querySelectorAll("#filterJob");
+    const filterJobArray = Array.from(filterJob);
     console.log(filterJob);
-    filter.classList.remove("hide");
-    filterJobs.innerHTML += `
-    <div class="filter__job" id="filterJob">
-        <div class="filter__title">${spanElement.textContent}</div>
-            <div class="filter__close" id="filterClose">
-                <img src="./images/icon-remove.svg" alt="Close" />
-            </div>
-    </div>
-    `;
-    displayTagsSelected(spanElement.textContent);
+    const exist = filterJobArray.some(
+      (element) => element.innerText == spanElement.textContent
+    );
+    console.log("exist este ", exist);
+
+    if (!exist) {
+      filter.classList.remove("hide");
+      filterJobs.innerHTML += `
+        <div class="filter__job" id="filterJob">
+            <div class="filter__title">${spanElement.textContent}</div>
+                <div class="filter__close" id="filterClose">
+                    <img src="./images/icon-remove.svg" alt="Close" />
+                </div>
+        </div>
+        `;
+      displayTagsSelected(spanElement.textContent);
+    }
+    removeTag();
   });
 }
 
@@ -138,5 +146,30 @@ function displayTagsSelected(spanElem) {
     );
     if (!exist) elementContainer.classList.add("hide");
   });
-  console.log(jobsContainer);
+}
+
+function removeTag() {
+  const filterJob = document.querySelectorAll("#filterJob");
+  filterJob.forEach((element) => {
+    element.addEventListener("click", () => {
+      element.remove();
+      displayTagsRemoved();
+    });
+  });
+}
+
+function displayTagsRemoved() {
+  const jobsContainer = jobs.querySelectorAll("#jobsContainer");
+  jobsContainer.forEach((elementContainer) => {
+    const filterJob = document.querySelectorAll("#filterJob");
+    const filterJobArray = Array.from(filterJob);
+    const jobsCategory = elementContainer.querySelectorAll("#jobsCategory");
+    const jobsCategoryArray = Array.from(jobsCategory);
+    const check = filterJobArray.every((elementJob) =>
+      jobsCategoryArray.some(
+        (elementCategory) => elementCategory.innerText === elementJob.innerText
+      )
+    );
+    if (check) elementContainer.classList.remove("hide");
+  });
 }
